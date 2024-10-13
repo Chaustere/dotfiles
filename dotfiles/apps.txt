@@ -6,3 +6,5 @@ kitty
 ncpamixer
 btop
 fastfetch
+wofi
+dolphin
