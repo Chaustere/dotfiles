@@ -3,3 +3,5 @@ cava
 kitty
 waybar
 rofi
+nerdfonts symbols
+fira font
