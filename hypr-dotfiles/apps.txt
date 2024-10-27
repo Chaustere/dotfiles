@@ -1,0 +1,10 @@
+cava
+hyprland
+hyprpaper
+waybar
+kitty
+ncpamixer
+btop
+fastfetch
+wofi
+dolphin
