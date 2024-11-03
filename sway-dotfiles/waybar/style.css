@@ -3,25 +3,23 @@
   font-family: 'Fira Code', 'Symbols Nerd Font Mono';
   font-size: 16px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-  min-height: 30px;
+  min-height: 20px;
   color: #eac2f7;
   border-radius: 10px;
 }
 
 window#waybar {
-  /*background: transparent;*/
   background-color: #11111b;
   border: 2px solid #eac2f7;
 }
 
-#custom-fedora, #workspaces, #custom-console {
+#custom-endeavouros, #workspaces, #custom-console {
   border-radius: 10px;
-  padding-top: 1px;
   padding-left: 0px;
   padding-right: 5px;
 }
 
-#custom-fedora, #custom-console, #custom-swaymenu {
+#custom-endeavouros, #custom-console, #custom-swaymenu {
   font-size: 20px;
   margin-left: 10px;
   color: #b4befe;
@@ -34,6 +32,16 @@ window#waybar {
 
 #workspaces button {
   border: none;
+}
+
+#tray menu {
+  background-color: #11111b;
+  border: 2px solid #eac2f7;
+}
+
+#tray {
+  color: black;
+  padding-right: 10px;
 }
 
 #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery{

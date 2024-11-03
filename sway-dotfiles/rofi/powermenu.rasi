@@ -18,11 +18,11 @@ window {
     background-color:               @BG;
     text-color:                     @FG;
     border:                  	    2px;
-    border-color:                   @BGA;
+    border-color:                   @BDR;
     border-radius:                  10px;
     width:                          110px;
-    x-offset:                       -2%;
-    y-offset:                       0;
+    x-offset:                       -0.3%;
+    y-offset:                       -23.9%;
 }
 
 prompt {

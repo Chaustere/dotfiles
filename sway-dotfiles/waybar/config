@@ -1,13 +1,14 @@
 {
   "layer": "top",
+  "position": "top",
     "modules-left": ["custom/swaymenu", "custom/console", "sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/fedora"],
+    "modules-right": ["tray", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/endeavouros"],
     "margin-top": 5,
     "margin-left": 5,
     "margin-right": 5,
-    "custom/fedora": {
-      "format": "  ",
+    "custom/endeavouros": {
+      "format": "  ",
       "tooltip": false,
       "on-click": "sh $HOME/.config/rofi/bin/powermenu"
     },
@@ -35,6 +36,10 @@
       "format": "<span color='#b4befe'> </span>{:%Y-%m-%d %H:%M}",
       "tooltip": false,
     },
+    "tray": {
+      "icon-size": 21,
+      "spacing": 10
+    },
     "backlight": {
       "device": "intel_backlight",
       "format": "<span color='#b4befe'>{icon}</span> {percent}%",
@@ -43,7 +48,7 @@
     },
     "pulseaudio": {
       "format": "<span color='#b4befe'>{icon}</span> {volume}%",
-      "format-muted": "",
+      "format-muted": "<span color='#b4befe'></span>",
       "tooltip": false,
       "format-icons": {
         "headphone": "",
@@ -58,10 +63,10 @@
       "format-connected": "<span color='#b4befe'></span> {num_connections}",
       "tooltip-format": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
-      "on-click": "kitty bluetoothctl",
+      "on-click": "blueman-manager",
     },
     "network": {
-      "interface": "wlp0s20f3",
+      "interface": "wlan0",
       "format": "{ifname}",
       "format-wifi": "<span color='#b4befe'> </span>{essid}",
       "format-ethernet": "{ipaddr}/{cidr} ",

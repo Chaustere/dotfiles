@@ -31,11 +31,12 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /home/owen/Images/RW_survivor_wp.jpg fill
+output * bg /home/owen/Images/Survivor_intro_scene_4_\(walking\).png fill
 #
 # Example configuration:
 #
-output eDP-1 resolution 1920x1080 position 0,0
+output DVI-D-1 resolution 1920x1080 position 0,0
+output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -84,6 +85,8 @@ gaps inner 5
 
 for_window [title="bluetoothctl"] floating enable
 
+workspace 1 output DVI-D-1
+workspace 9 output DVI-D-1
 
 #set $trans 0.8
 #for_window [class=".*"] opacity set $trans
@@ -152,16 +155,16 @@ for_window [title="bluetoothctl"] floating enable
     bindsym $mod+ccedilla workspace 9
     bindsym $mod+agrave workspace 10
     # Move focused container to workspace
-    bindsym $mod+Shift+ampersand move container to workspace 1
-    bindsym $mod+Shift+eacute move container to workspace 2
-    bindsym $mod+Shift+quotedbl move container to workspace 3
-    bindsym $mod+Shift+apostrophe move container to workspace 4
-    bindsym $mod+Shift+parenleft move container to workspace 5
-    bindsym $mod+Shift+egrave move container to workspace 6
-    bindsym $mod+Shift+minus move container to workspace 7
-    bindsym $mod+Shift+underscore move container to workspace 8
-    bindsym $mod+Shift+ccedilla move container to workspace 9
-    bindsym $mod+Shift+agrave move container to workspace 10
+    bindsym $mod+Mod1+ampersand move container to workspace 1
+    bindsym $mod+Mod1+eacute move container to workspace 2
+    bindsym $mod+Mod1+quotedbl move container to workspace 3
+    bindsym $mod+Mod1+apostrophe move container to workspace 4
+    bindsym $mod+Mod1+parenleft move container to workspace 5
+    bindsym $mod+Mod1+egrave move container to workspace 6
+    bindsym $mod+Mod1+minus move container to workspace 7
+    bindsym $mod+Mod1+underscore move container to workspace 8
+    bindsym $mod+Mod1+ccedilla move container to workspace 9
+    bindsym $mod+Mod1+agrave move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -196,11 +199,17 @@ for_window [title="bluetoothctl"] floating enable
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+twosuperior move scratchpad
+    bindsym $mod+Mod1+twosuperior move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+twosuperior scratchpad show
+#
+# Audio control:
+#
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 #
 # Resizing containers:
 #
@@ -248,5 +257,21 @@ bindsym $mod+r mode "resize"
 # the trick, it's all in the `wordexp(3)`.
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
-
+include '$(/usr/libexec/sway/layered-include "~/.config/sway/config.d/theme.conf")'
 exec gammastep
+exec waybar
+
+set $bg #282828
+set $bg_2 #504945
+set $fg #ebdbb2
+set $fg_1 #FBF1C7
+set $fg_2 #D5C4A
+set $focused #91009c
+set $inactiveopacity A0
+
+# class                 border  bground text    indicator child_border
+client.focused          $focused $focused $fg     $focused   $focused
+client.focused_inactive $bg_2   #5F676A$inactiveopacity $fg     #484E50   #5F676A
+client.unfocused        $bg_2   #282828$inactiveopacity #888888 #292D2E   #222222
+client.urgent           #2F343A #CC241D $fg_1   #CC241D   #CC241D
+client.placeholder      #1D2021 #0C0C0C $fg      #000000   #0C0C0C
