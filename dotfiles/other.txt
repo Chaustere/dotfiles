@@ -1,1 +1,0 @@
-fastfetch images: https://github.com/ad-oliviero/uwufetch/blob/main/res/COPYRIGHT.md

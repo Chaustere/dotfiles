@@ -1,25 +1,25 @@
 * {
   border: none;
-  font-family: 'Fira Code', 'Symbols Nerd Font Mono';
+  font-family: 'DejaVu Sans Mono', 'Symbols Nerd Font Mono';
   font-size: 16px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-  min-height: 20px;
+  min-height: 30px;
   color: #eac2f7;
   border-radius: 10px;
 }
 
 window#waybar {
   background-color: #11111b;
-  border: 2px solid #eac2f7;
+  border: 2px solid #E0B0FF;
 }
 
-#custom-endeavouros, #workspaces, #custom-console {
+#custom-fedora, #workspaces, #custom-console {
   border-radius: 10px;
   padding-left: 0px;
   padding-right: 5px;
 }
 
-#custom-endeavouros, #custom-console, #custom-swaymenu {
+#custom-fedora, #custom-console, #custom-swaymenu {
   font-size: 20px;
   margin-left: 10px;
   color: #b4befe;
